@@ -13,8 +13,10 @@
     --color-primary: #3575E2;
     --color-secondry: rgba(67, 67, 67, 0.791);
     --color-is-black: #000;
+    --color-light-black: #000000e4;
     --color-bg: #fff;
     --color-border: rgba(128, 128, 128, 0.196);
+    --color-border-light: rgba(128, 128, 128, 0.605);
 }
 
 .dark-theme{
@@ -50,10 +52,9 @@ html,body{
     width: var(--width-lg-screen);
     margin: 0 auto;
 }
-
-
-
-
+section{
+    padding-top: 7rem;
+}
 
 img{
     width: 100%;
@@ -63,6 +64,10 @@ img{
 }
 
 
+.sub__title{
+    font-size: 1.4rem;
+    color: var(--color-secondry);
+}
 
 
 
@@ -78,6 +83,9 @@ img{
     .container{
         width: var(--width-md-screen);
     }
+    section{
+        padding-top: 6rem;
+    }
 }
 
 
@@ -89,5 +97,8 @@ img{
 
     .container{
         width: var(--width-sm-screen);
+    }
+    section{
+        padding-top: 5rem;
     }
 }

@@ -14,7 +14,7 @@ export const Links = [
     },
 
     {
-        id: 1,
+        id: 3,
         title: "salary estimate",
         path: "/salary"
     },
