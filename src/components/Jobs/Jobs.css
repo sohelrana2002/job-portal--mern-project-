@@ -1,0 +1,11 @@
+.job__bg{
+    width: 100%;
+    margin-top: 10rem;
+    background-color: #fafafa;
+}
+.jobs__container{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 2rem;
+    padding: 5rem 0;
+}

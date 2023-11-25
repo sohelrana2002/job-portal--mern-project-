@@ -1,15 +1,13 @@
 import { useState } from "react";
+import { useJobDataContext } from "../../context/JobDataContext";
 import { CiSearch } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import "./SearchBar.css";
 
 const SearchBar = () => {
-  const [query, setQuery] = useState("");
-  const handleQuery = (e) => {
-    let value = e.target.value;
-    setQuery(value);
-    console.log(value);
-  };
+  const { jobs, query, handleQuery } = useJobDataContext();
+ 
+
   return (
     <div className="search__bar">
       <form>
