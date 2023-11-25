@@ -7,6 +7,7 @@
     --width-lg-screen: 87%;
     --width-md-screen: 87%;
     --width-sm-screen: 90%;
+    --transition: all 0.4s ease;
 }
 
 .light-theme{
@@ -15,6 +16,7 @@
     --color-is-black: #000;
     --color-light-black: #000000e4;
     --color-bg: #fff;
+    --color-white: #fff;
     --color-border: rgba(128, 128, 128, 0.196);
     --color-border-light: rgba(128, 128, 128, 0.605);
 }

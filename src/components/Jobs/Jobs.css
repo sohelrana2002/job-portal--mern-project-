@@ -1,11 +1,91 @@
 .job__bg{
     width: 100%;
     margin-top: 10rem;
-    background-color: #fafafa;
+    background-color: #cfcfcfde;
+}
+.job__bg .container:nth-child(1){
+    display: flex;
+    justify-content: space-between;
 }
 .jobs__container{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 2.3fr 1fr;
     gap: 2rem;
     padding: 5rem 0;
+}
+.jobs__card{
+    background: var(--color-bg);
+    padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0px 3px 3px rgba(130, 130, 130, 0.8);
+    height: max-content;
+}
+.left__job{
+    background: var(--color-bg);
+    z-index: 999;
+}
+.middle__job{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.job__menu{
+    background: var(--color-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    display: none;
+}
+.job__menu svg{
+    font-size: 2rem;
+    color: var(--color-light-black);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* ---------------media query(mediam screen)-------------*/
+@media screen and (max-width: 1024px) {
+    .jobs__container{
+        grid-template-columns: 2fr 1fr;
+        position: relative;
+        overflow: hidden;
+    }
+    .left__job{
+        position: absolute;
+        top: 5rem;
+        bottom: 0;
+        left: -100%;
+        transition: var(--transition);
+    }
+    .left__job.active{
+        left: 0;
+    }
+    .job__menu{
+        display: grid;
+    }
+}
+
+
+/*---------------media query(mediam screen)------------- */
+@media screen and (max-width: 700px) {
+    .jobs__container{
+        grid-template-columns: 1fr;
+    }
+    .right__jobs{
+        position: absolute;
+        top: 5rem;
+        bottom: 0;
+        right: -100%;
+        transition: var(--transition);
+    }
+    .right__jobs.active{
+        right: 0;
+    }
 }
