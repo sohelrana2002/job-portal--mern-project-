@@ -68,13 +68,14 @@ const JobDataContextProvider = ({ children }) => {
   const filteredJobsData = (jobs, selectedCategory, query) => {
     // ----filter job though searching----------
     const filterJobsQuery = jobs?.filter((curElem) => {
-      // return (curElem?.jobTitle?.toLowerCase()?.indexOf(query?.toLowerCase()) !== -1);
-      return curElem?.jobTitle?.toLowerCase()?.includes(query);
+      return (curElem?.jobTitle?.toLowerCase()?.indexOf(query?.toLowerCase()) !== -1);
+      // return curElem?.jobTitle?.toLowerCase()?.includes(query);
     });
     let filteringJobs = jobs;
     // -----------for query----------
     if (query) {
       filteringJobs = filterJobsQuery;
+      return filteringJobs;
     }
 
     // -----for selected category------------
@@ -89,10 +90,14 @@ const JobDataContextProvider = ({ children }) => {
           postingDate,
         } = props;
 
-        jobLocation.toLowerCase() === selectedCategory.toLowerCase() ||
-          parseInt(maxPrice) <= parseInt(selectedCategory) ||
-          salaryType.toLowerCase() === selectedCategory.toLowerCase() ||
-          employmentType.toLowerCase() === selectedCategory.toLowerCase();
+         if (
+           jobLocation.toLowerCase() === selectedCategory.toLowerCase() ||
+           parseInt(maxPrice) <= parseInt(selectedCategory) ||
+           salaryType.toLowerCase() === selectedCategory.toLowerCase() ||
+           employmentType.toLowerCase() === selectedCategory.toLowerCase()
+         ) {
+           return filteringJobs;
+         }
       });
     }
 

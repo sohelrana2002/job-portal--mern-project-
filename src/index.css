@@ -72,6 +72,15 @@ img{
     color: var(--color-secondry);
 }
 
+.jobs__title{
+    font-size: 2rem;
+    color: var(--color-is-black);
+}
+.filter__title{
+    font-size: 1.5rem;
+    color: var(--color-secondry);
+    margin: 0px 0 10px;
+}
 
 
 

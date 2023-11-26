@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "../Card/Card";
 import { RiMenu3Fill } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
+import SideBarJobs from "../SideBarJobs/SideBarJobs";
 import "./Jobs.css";
 
 const Jobs = ({ data }) => {
@@ -28,7 +29,7 @@ const Jobs = ({ data }) => {
 
       <div className="container jobs__container">
         <div className={`left__job jobs__card ${isMenuShowing && "active"}`}>
-          left
+          <SideBarJobs />
         </div>
 
         <div className="middle__job jobs__card">
