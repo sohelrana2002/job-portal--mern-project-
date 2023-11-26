@@ -1,5 +1,5 @@
-import { useJobDataContext } from '../../context/JobDataContext'
-import InputLocation from './InputLocation';
+import { useJobDataContext } from '../../../context/JobDataContext'
+import InputLocation from '../InputLocation/InputLocation';
 import './Location.css'
 
 const Location = () => {
@@ -50,6 +50,12 @@ const Location = () => {
           name="test"
           title="Boston"
           value="boston"
+        />
+        <InputLocation
+          handleRatioInput={handleRatioInput}
+          name="test"
+          title="Madrid"
+          value="madrid"
         />
       </div>
     </div>

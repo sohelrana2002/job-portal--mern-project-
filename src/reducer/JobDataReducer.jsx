@@ -34,7 +34,9 @@ const jobDataReducer = (state, action) => {
        ...state,
        selectedCategory: action.payload,
      };
-   }
+   };
+
+   
 
 
 

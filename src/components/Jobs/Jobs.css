@@ -28,6 +28,8 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    position: relative;
+    padding-bottom: 10rem;
 }
 .job__menu{
     background: var(--color-white);
@@ -43,8 +45,21 @@
     color: var(--color-light-black);
     cursor: pointer;
 }
-
-
+.pagination{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    gap: 3rem;
+    width: 24rem;
+}
+.pagination > button{
+    background: transparent;
+    color: var(--color-secondry);
+    font-size: 1.7rem;
+    cursor: pointer;
+}
 
 
 
@@ -63,6 +78,7 @@
         bottom: 0;
         left: -100%;
         transition: var(--transition);
+        width: 70%;
     }
     .left__job.active{
         left: 0;
@@ -79,6 +95,7 @@
         grid-template-columns: 1fr;
     }
     .right__jobs{
+        width: 70%;
         position: absolute;
         top: 5rem;
         bottom: 0;
@@ -87,5 +104,8 @@
     }
     .right__jobs.active{
         right: 0;
+    }
+    .jobs__card:nth-child(2){
+        padding: 1rem 1rem 10rem;
     }
 }

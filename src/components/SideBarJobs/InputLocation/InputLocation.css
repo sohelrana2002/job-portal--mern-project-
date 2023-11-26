@@ -6,12 +6,11 @@
     margin-bottom: 12px;
     user-select: none;
     font-size: 1.4rem;
+    cursor: pointer;
 }
 .input__location label input{
     position: absolute;
     opacity: 0;
-    cursor: pointer;
-    cursor: pointer;
 }
 .input__location input:checked ~ span {
     background-color: #2196F3;

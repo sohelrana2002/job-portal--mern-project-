@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Links } from "../../data/Data";
 import { MdOutlineLightMode } from "react-icons/md";
@@ -11,6 +11,24 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isNavShowing, setIshNavShowing] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const formRef = useRef();
+
+
+  useEffect(() => {
+    const handleOutSideForm = (e) => {
+      if (!formRef.current.contains(e.target)) {
+        setIshNavShowing(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutSideForm);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutSideForm);
+    };
+  }, []);
+
+
 
   return (
     <nav>
@@ -18,14 +36,17 @@ const Navbar = () => {
         <NavLink to="/" className="logo">
           Job Portal
         </NavLink>
-        <ul className={`menu ${isNavShowing ? "active__nav" : ""}`}>
+        <ul
+          className={`menu ${isNavShowing ? "active__nav" : ""}`}
+          ref={formRef}
+        >
           {Links &&
             Links?.map(({ id, title, path }) => {
               return (
                 <li key={id}>
                   <NavLink
                     to={path}
-                    className={({ isActive }) => isActive ? "active" : ""}
+                    className={({ isActive }) => (isActive ? "active" : "")}
                   >
                     {title}
                   </NavLink>
@@ -41,7 +62,7 @@ const Navbar = () => {
           >
             {isDarkMode ? <CiDark /> : <MdOutlineLightMode />}
           </div>
-          <NavLink to='log-in'>
+          <NavLink to="log-in">
             <CiLogin />
           </NavLink>
 

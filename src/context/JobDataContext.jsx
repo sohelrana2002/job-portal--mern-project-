@@ -10,11 +10,12 @@ const initialState = {
     selectedCategory: null,
     isLoading: false,
     jobs: [],
-    query: ""
+    query: "",
 }
 
 const JobDataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(jobDataReducer, initialState);
+
 
   const getData = async () => {
     dispatch({
@@ -103,6 +104,11 @@ const JobDataContextProvider = ({ children }) => {
 
     return filteringJobs;
   };
+
+
+
+
+
 
   // -----------value send in provider------------
   const value = {
