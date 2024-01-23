@@ -121,7 +121,9 @@ const JobDataContextProvider = ({ children }) => {
   };
 
   return (
-    <JobDataContext.Provider value={value}>{children}</JobDataContext.Provider>
+    <JobDataContext.Provider value={value}>
+      {children}
+    </JobDataContext.Provider>
   );
 };
 
