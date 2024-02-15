@@ -49,6 +49,8 @@ const Jobs = ({ data }) => {
 
   return (
     <section className="job__bg">
+
+      {/* --------for small devices toggle menu----------- */}
       <div className="container">
         <div
           className="job__menu"
@@ -65,7 +67,11 @@ const Jobs = ({ data }) => {
         </div>
       </div>
 
+
+        {/* ------------job part start------------ */}
       <div className="container jobs__container">
+
+        {/* --------------left size jobs--------- */}
         <div
           className={`left__job jobs__card ${isMenuShowing && "active"}`}
           ref={formRef}
@@ -73,6 +79,8 @@ const Jobs = ({ data }) => {
           <SideBarJobs />
         </div>
 
+
+          {/* ----------middle size jobs----------- */}
         <div className="middle__job jobs__card">
           <h3 className="filter__title">{data.length} Jobs</h3>
 
@@ -93,6 +101,8 @@ const Jobs = ({ data }) => {
           </div>
         </div>
 
+
+            {/* -----------right size jobs------------- */}
         <div
           className={`right__jobs jobs__card ${isMenuShowing2 && "active"}`}
           ref={formRef}

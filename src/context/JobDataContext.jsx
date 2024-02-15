@@ -82,20 +82,21 @@ const JobDataContextProvider = ({ children }) => {
     // -----for selected category------------
     if (selectedCategory) {
       filteringJobs = filteringJobs.filter((props) => {
-        const {
+        const { 
+          postingDate,
           jobLocation,
           salaryType,
           maxPrice,
           experienceLevel,
-          employmentType,
-          postingDate,
+          employmentType
         } = props;
 
          if (
-           jobLocation.toLowerCase() === selectedCategory.toLowerCase() ||
-           parseInt(maxPrice) <= parseInt(selectedCategory) ||
-           salaryType.toLowerCase() === selectedCategory.toLowerCase() ||
-           employmentType.toLowerCase() === selectedCategory.toLowerCase()
+           jobLocation?.toLowerCase() === selectedCategory?.toLowerCase() || 
+           Number(maxPrice) <= Number(selectedCategory) || 
+           postingDate >= selectedCategory || 
+           salaryType?.toLowerCase() === selectedCategory?.toLowerCase() ||
+           employmentType?.toLowerCase() === selectedCategory?.toLowerCase()  
          ) {
            return filteringJobs;
          }

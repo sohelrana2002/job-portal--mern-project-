@@ -5,6 +5,7 @@ import "./Saralry.css";
 
 const Saralry = () => {
   const { handleRatioInput, handleButtonInput } = useJobDataContext();
+  
   return (
     <div className="salary">
       <h4 className="filter__title">Salary</h4>
