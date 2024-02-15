@@ -92,11 +92,12 @@ const JobDataContextProvider = ({ children }) => {
         } = props;
 
          if (
-           jobLocation?.toLowerCase() === selectedCategory?.toLowerCase() || 
-           Number(maxPrice) <= Number(selectedCategory) || 
-           postingDate >= selectedCategory || 
+           jobLocation?.toLowerCase() === selectedCategory?.toLowerCase() ||
+           Number(maxPrice) <= Number(selectedCategory) ||
+           postingDate >= selectedCategory ||
            salaryType?.toLowerCase() === selectedCategory?.toLowerCase() ||
-           employmentType?.toLowerCase() === selectedCategory?.toLowerCase()  
+           employmentType?.toLowerCase() === selectedCategory?.toLowerCase() ||
+           experienceLevel?.toLowerCase() === selectedCategory?.toLowerCase()
          ) {
            return filteringJobs;
          }
