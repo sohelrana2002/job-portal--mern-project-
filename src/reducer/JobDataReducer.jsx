@@ -22,6 +22,14 @@ const jobDataReducer = (state, action) => {
      };
    }
 
+   case "SET_LOCATION_QUERY": {
+     return {
+       ...state,
+       locationQuery: action.payload,
+     };
+   }
+
+
    case "SEND_VALUE_SELECTEDCATEGORY": {
      return {
        ...state,

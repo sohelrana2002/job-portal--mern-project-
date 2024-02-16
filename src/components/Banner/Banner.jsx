@@ -6,10 +6,10 @@ import "./Banner.css";
 import Jobs from "../Jobs/Jobs";
 
 const Banner = () => {
-  const { isLoading, selectedCategory, jobs, query, filteredJobsData } =
+  const { isLoading, selectedCategory, jobs, query, filteredJobsData, locationQuery, } =
     useJobDataContext();
 
-  const resultJobData = filteredJobsData(jobs, selectedCategory, query);
+  const resultJobData = filteredJobsData(jobs, selectedCategory, query, locationQuery);
 
   if (isLoading) {
     return <Loading />;

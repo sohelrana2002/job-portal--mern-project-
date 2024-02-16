@@ -5,12 +5,12 @@ import { CiLocationOn } from "react-icons/ci";
 import "./SearchBar.css";
 
 const SearchBar = () => {
-  const { jobs, query, handleQuery } = useJobDataContext();
+  const { jobs, query, handleQuery, handleLoactionQuery, locationQuery } = useJobDataContext();
  
 
   return (
     <div className="search__bar">
-      <form>
+      <form onSubmit={handleQuery}>
         <div className="bar__style">
           <input
             type="text"
@@ -21,7 +21,10 @@ const SearchBar = () => {
           <CiSearch className="bar__icon" />
         </div>
         <div className="bar__style">
-          <input type="text" placeholder="Location" />
+          <input type="text" 
+          placeholder="Location"
+          onChange={handleLoactionQuery}
+          value={locationQuery} />
           <CiLocationOn className="bar__icon" />
         </div>
 

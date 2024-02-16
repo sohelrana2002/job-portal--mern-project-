@@ -11,6 +11,7 @@ const initialState = {
     isLoading: false,
     jobs: [],
     query: "",
+    locationQuery: "",
 }
 
 const JobDataContextProvider = ({ children }) => {
@@ -47,6 +48,15 @@ const JobDataContextProvider = ({ children }) => {
     });
   };
 
+  // ----Handle location query--- 
+  const handleLoactionQuery = (e) =>{
+    let value = e.target.value;
+    dispatch({
+      type: "SET_LOCATION_QUERY",
+      payload: value,
+    })
+  }
+
   // ------handle ratio input-----------
   const handleRatioInput = (e) => {
     let value = e.target.value;
@@ -66,7 +76,7 @@ const JobDataContextProvider = ({ children }) => {
   };
 
   // ---------main filter data funtion------------
-  const filteredJobsData = (jobs, selectedCategory, query) => {
+  const filteredJobsData = (jobs, selectedCategory, query, locationQuery) => {
     // ----filter job though searching----------
     const filterJobsQuery = jobs?.filter((curElem) => {
       return (curElem?.jobTitle?.toLowerCase()?.indexOf(query?.toLowerCase()) !== -1);
@@ -76,6 +86,16 @@ const JobDataContextProvider = ({ children }) => {
     // -----------for query----------
     if (query) {
       filteringJobs = filterJobsQuery;
+      return filteringJobs;
+    }
+
+    const locationQueryJobs = jobs.filter((curElem) =>{
+      return curElem?.jobLocation?.toLowerCase()?.includes(locationQuery); 
+    });
+
+    // -----for location query ---- 
+    if(locationQuery){
+      filteringJobs = locationQueryJobs;
       return filteringJobs;
     }
 
@@ -120,6 +140,7 @@ const JobDataContextProvider = ({ children }) => {
     handleRatioInput,
     handleButtonInput,
     filteredJobsData,
+    handleLoactionQuery
   };
 
   return (
