@@ -61,7 +61,7 @@ const Jobs = ({ data }) => {
         </div>
 
         <div
-          className="job__menu"
+          className="job__menu two"
           onClick={() => setIsMenuShowing2((prev) => !prev)}
         >
           {isMenuShowing2 ? <IoCloseSharp /> : <RiMenu3Fill />}

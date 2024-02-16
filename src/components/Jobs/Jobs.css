@@ -68,7 +68,7 @@
 /* ---------------media query(mediam screen)-------------*/
 @media screen and (max-width: 1024px) {
     .jobs__container{
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr;
         position: relative;
         overflow: hidden;
     }
@@ -83,17 +83,6 @@
     .left__job.active{
         left: 0;
     }
-    .job__menu{
-        display: grid;
-    }
-}
-
-
-/*---------------media query(mediam screen)------------- */
-@media screen and (max-width: 700px) {
-    .jobs__container{
-        grid-template-columns: 1fr;
-    }
     .right__jobs{
         width: 70%;
         position: absolute;
@@ -105,7 +94,21 @@
     .right__jobs.active{
         right: 0;
     }
+    .job__menu{
+        display: grid;
+    }
+    
+}
+
+
+/*---------------media query(mediam screen)------------- */
+@media screen and (max-width: 700px) {
+    .jobs__container{
+        grid-template-columns: 1fr;
+    }
+   
     .jobs__card:nth-child(2){
         padding: 1rem 1rem 10rem;
     }
+   
 }
