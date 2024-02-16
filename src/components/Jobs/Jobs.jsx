@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 import { RiMenu3Fill } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
 import SideBarJobs from "../SideBarJobs/SideBarJobs";
+import RightSideJobs from "../RightSideJobs/RightSideJobs";
 import "./Jobs.css";
 
 const Jobs = ({ data }) => {
@@ -107,7 +108,7 @@ const Jobs = ({ data }) => {
           className={`right__jobs jobs__card ${isMenuShowing2 && "active"}`}
           ref={formRef}
         >
-          right
+          <RightSideJobs />
         </div>
       </div>
     </section>
