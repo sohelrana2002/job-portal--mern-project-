@@ -37,7 +37,7 @@ const Card = ({cardData}) => {
               </div>
               <div>
                 <MdWatchLater />
-                <p>{salaryType}</p>
+                <p>{employmentType}</p>
               </div>
               <div>
                 <PiCurrencyDollar />
