@@ -1,65 +1,37 @@
-import { useJobDataContext } from '../../../context/JobDataContext'
-import InputLocation from '../InputLocation/InputLocation';
-import './Location.css'
+import { useJobDataContext } from "../../../context/JobDataContext";
+import InputLocation from "../InputLocation/InputLocation";
+import "./Location.css";
 
 const Location = () => {
-    const { handleRatioInput } = useJobDataContext();
+  const { handleRatioInput, jobs } = useJobDataContext();
 
+  const getLocation = jobs.map((curElem) => {
+    return curElem?.jobLocation?.toLowerCase();
+  });
+
+  const uniqueGetLocation = ["all", ...new Set(getLocation)];
+  // console.log(uniqueGetLocation);
 
   return (
     <div className="location__container">
-      <h4 className='filter__title'>Location</h4>
+      <h4 className="filter__title">Location</h4>
 
-      <div className='input__location'>
-        <label>
-          <input
-            type="radio"
-            name="test"
-            value=""
-            onChange={handleRatioInput}
-          />
-          <span></span> All
-        </label>
-
-        <InputLocation
-          handleRatioInput={handleRatioInput}
-          name="test"
-          title="London"
-          value="london"
-        />
-        <InputLocation
-          handleRatioInput={handleRatioInput}
-          name="test"
-          title="Brussels"
-          value="brussels"
-        />
-        <InputLocation
-          handleRatioInput={handleRatioInput}
-          name="test"
-          title="San Francisco"
-          value="san francisco"
-        />
-        <InputLocation
-          handleRatioInput={handleRatioInput}
-          name="test"
-          title="Seattle"
-          value="seattle"
-        />
-        <InputLocation
-          handleRatioInput={handleRatioInput}
-          name="test"
-          title="Boston"
-          value="boston"
-        />
-        <InputLocation
-          handleRatioInput={handleRatioInput}
-          name="test"
-          title="Madrid"
-          value="madrid"
-        />
+      <div className="input__location">
+        {uniqueGetLocation &&
+          uniqueGetLocation.map((curElem, i) => {
+            return (
+              <InputLocation
+                key={i}
+                handleRatioInput={handleRatioInput}
+                name="test"
+                title={curElem}
+                value={curElem}
+              />
+            );
+          })}
       </div>
     </div>
   );
-}
+};
 
-export default Location
+export default Location;

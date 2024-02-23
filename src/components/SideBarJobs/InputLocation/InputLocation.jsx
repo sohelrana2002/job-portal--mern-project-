@@ -1,4 +1,5 @@
 
+
 import './InputLocation.css'
 
 const InputLocation = ({handleRatioInput, value, title, name}) => {

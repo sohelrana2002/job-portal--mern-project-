@@ -5,6 +5,7 @@ import MyJobs from '../pages/MyJobs/MyJobs'
 import SalaryEstimate from '../pages/SalaryEstimate/SalaryEstimate'
 import PostJobs from "../pages/PostJobs/PostJobs";
 import LogIn from '../helper/LogIn/LogIn'
+import SignUp from "../helper/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         {
           path: "/log-in",
           element: <LogIn />
+        },
+        {
+          path: "/sign-up",
+          element: <SignUp />
         },
         {
           path: "/my-job",

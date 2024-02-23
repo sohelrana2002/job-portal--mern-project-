@@ -7,7 +7,7 @@ import axios from "axios";
 const JobDataContext = createContext();
 
 const initialState = {
-    selectedCategory: null,
+    selectedCategory: "all",
     isLoading: false,
     jobs: [],
     query: "",
@@ -100,7 +100,7 @@ const JobDataContextProvider = ({ children }) => {
     }
 
     // -----for selected category------------
-    if (selectedCategory) {
+    if (selectedCategory != "all") {
       filteringJobs = filteringJobs.filter((props) => {
         const { 
           postingDate,
@@ -111,6 +111,12 @@ const JobDataContextProvider = ({ children }) => {
           employmentType
         } = props;
 
+        // if(jobLocation.toLowerCase() === selectedCategory?.toLowerCase()){
+        //   return filteringJobs;
+        // }else{
+        //   jobs;
+        //   return;
+        // }
          if (
            jobLocation?.toLowerCase() === selectedCategory?.toLowerCase() ||
            Number(maxPrice) <= Number(selectedCategory) ||

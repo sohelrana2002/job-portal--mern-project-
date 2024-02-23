@@ -67,6 +67,16 @@ img{
 }
 
 
+.btn{
+    padding: 1.35rem;
+    background: var(--color-primary);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 .sub__title{
     font-size: 1.4rem;
     color: var(--color-secondry);

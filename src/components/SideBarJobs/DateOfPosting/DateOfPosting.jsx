@@ -6,7 +6,7 @@ import './DateOfPosting.css'
 
 const DateOfPosting = () => {
     const { handleRatioInput, selectedCategory } = useJobDataContext();
-    console.log(selectedCategory);
+    // console.log(selectedCategory);
 
     // ----get from using date function--- 
     const realTime = new Date();

@@ -4,28 +4,28 @@ import InputLocation from "../InputLocation/InputLocation";
 import "./Saralry.css";
 
 const Saralry = () => {
-  const { handleRatioInput, handleButtonInput } = useJobDataContext();
-  
+  const { handleRatioInput, handleButtonInput, jobs } = useJobDataContext();
+
+  const getSalaryType = jobs.map((curElem) => curElem.salaryType);
+  const uniqueGetSalaryType = [...new Set(getSalaryType)];
+  // console.log(uniqueGetSalaryType);
+
   return (
     <div className="salary">
       <h4 className="filter__title">Salary</h4>
 
       <div className="salary__button">
-        <Salary
-          handleButtonInput={handleButtonInput}
-          value="hourly"
-          title="Hourly"
-        />
-        <Salary
-          handleButtonInput={handleButtonInput}
-          value="monthly"
-          title="Monthly"
-        />
-        <Salary
-          handleButtonInput={handleButtonInput}
-          value="yearly"
-          title="Yearly"
-        />
+        {uniqueGetSalaryType &&
+          uniqueGetSalaryType.map((curElem, i) => {
+            return (
+              <Salary
+                key={i}
+                handleButtonInput={handleButtonInput}
+                value={curElem}
+                title={curElem}
+              />
+            );
+          })}
       </div>
 
       <div className="salary__price input__location">

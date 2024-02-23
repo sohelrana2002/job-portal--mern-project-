@@ -3,10 +3,11 @@
     align-items: center;
     position: relative;
     padding-left: 3.5rem;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     user-select: none;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     cursor: pointer;
+    text-transform: capitalize;
 }
 .input__location label input{
     position: absolute;

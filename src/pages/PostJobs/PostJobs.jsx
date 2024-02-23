@@ -4,7 +4,7 @@ import './PostJobs.css'
 
 const PostJobs = () => {
   return (
-    <div>PostJobs</div>
+    <div className='container post-job'>PostJobs</div>
   )
 }
 
