@@ -1,0 +1,79 @@
+.post__job{
+    padding-top: 10rem;
+    background: var(--color-border);
+}
+.post__job-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 5rem;
+}
+.post__job-top{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
+.post__job-left,
+.post__job-right{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.post__job-input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.post__job-input label{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-secondry);
+    text-transform: capitalize;
+}
+.post__job-input input,
+.post__job-input select,
+.post__job-input textarea{
+    padding: 1.2rem 3rem;
+    border-radius: 2px;
+    font-size: 1.6rem;
+    color: var(--color-secondry);
+}
+.post__job-input input::placeholder,
+.post__job-input select{
+    font-size: 1.6rem;
+    color: var(--color-secondry);
+}
+.post__job-form .btn{
+    font-size: 2.2rem;
+}
+.post__job-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
+
+
+
+
+
+
+/*---------------media query(mediam screen)------------- */
+@media screen and (max-width: 700px) {
+    .post__job-top{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .post__job-input input,
+    .post__job-input select,
+    .post__job-input textarea {
+        padding: 1.2rem;
+    }
+    .post__job-form{
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        padding: 2rem;
+    }
+}

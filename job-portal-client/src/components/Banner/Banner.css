@@ -1,0 +1,29 @@
+.banner__container{
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.find__job-heading{
+    font-size: 3.5rem;
+    color: var(--color-light-black);
+}
+
+.find__job-heading span{
+    color: var(--color-primary);
+}
+
+
+
+
+
+/*---------------media query(mediam screen)------------- */
+@media screen and (max-width: 700px) {
+    .find__job-heading{
+        font-size: 3rem;
+        color: var(--color-light-black);
+    }
+    
+}
+
