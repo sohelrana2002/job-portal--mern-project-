@@ -1,0 +1,11 @@
+
+
+.salary__button{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.salary__price{
+    margin-top: 1rem;
+}

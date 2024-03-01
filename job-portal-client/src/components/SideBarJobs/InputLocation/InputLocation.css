@@ -1,0 +1,28 @@
+.input__location label{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 3.5rem;
+    margin-bottom: 10px;
+    user-select: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.input__location label input{
+    position: absolute;
+    opacity: 0;
+}
+.input__location input:checked ~ span {
+    background-color: #2196F3;
+  }
+  
+.input__location label span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #eee;
+    border-radius: 50%;
+}
