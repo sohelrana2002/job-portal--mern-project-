@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./PostJobs.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PostJobs = () => {
   const [userPostJob, setUserPostJob] = useState({
@@ -16,6 +18,7 @@ const PostJobs = () => {
     description: "",
     email: "",
   });
+  const notify = () => toast("Successfully Submitted");
 
   let name, value;
   const postUserData = (event) => {
@@ -41,7 +44,16 @@ const PostJobs = () => {
         },
       });
       if(res.statusText === "OK"){
-          alert("submit successfully");
+          toast.success("Successfully submitted!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           setUserPostJob({
             companyName: "",
             jobTitle: "",
@@ -55,7 +67,7 @@ const PostJobs = () => {
             employmentType: "",
             description: "",
             email: "",
-          });
+          })
       }
 
       const data = await res.json();
@@ -243,6 +255,7 @@ const PostJobs = () => {
         <button type="submit" className="btn">
           Submit
         </button>
+        <ToastContainer className="tostify" />
       </form>
     </div>
   );
