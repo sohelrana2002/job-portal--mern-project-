@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./PostJobs.css";
 
 const PostJobs = () => {
@@ -15,7 +14,7 @@ const PostJobs = () => {
     experienceLevel: "",
     employmentType: "",
     description: "",
-    email: ""
+    email: "",
   });
 
   let name, value;
@@ -29,11 +28,50 @@ const PostJobs = () => {
     });
   };
 
-  console.log(userPostJob);
+  // console.log(userPostJob);
+
+  const handlePostJobSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:8000/api/post-job`, {
+        method: "POST",
+        body: JSON.stringify(userPostJob),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if(res.statusText === "OK"){
+          alert("submit successfully");
+          setUserPostJob({
+            companyName: "",
+            jobTitle: "",
+            companyLogo: "",
+            minPrice: "",
+            maxPrice: "",
+            salaryType: "",
+            jobLocation: "",
+            postingDate: "",
+            experienceLevel: "",
+            employmentType: "",
+            description: "",
+            email: "",
+          });
+      }
+
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.log("post job", err);
+    }
+  };
 
   return (
     <div className="container post__job">
-      <form className="post__job-form">
+      <form
+        // method="POST"
+        className="post__job-form"
+        onSubmit={handlePostJobSubmit}
+      >
         {/* =======post job top==== */}
         <div className="post__job-top">
           <div className="post__job-left">
@@ -154,10 +192,11 @@ const PostJobs = () => {
             {/* ==== exployement types==== */}
             <div className="post__job-input">
               <label>Employment Type</label>
-              <select 
+              <select
                 name="employmentType"
                 value={userPostJob.employmentType}
-                onChange={postUserData}>
+                onChange={postUserData}
+              >
                 <option>Select your jon type</option>
                 <option value="Temporary">Temporary</option>
                 <option value="Part-time">Part-time</option>
@@ -187,11 +226,11 @@ const PostJobs = () => {
             />
           </div>
 
-
-        {/* ======email ====== */}
+          {/* ======email ====== */}
           <div className="post__job-input">
             <label>Job posted by</label>
-            <input type="email"
+            <input
+              type="email"
               placeholder="Ex: youremail@mail.com"
               name="email"
               value={userPostJob.email}
