@@ -5,14 +5,14 @@ import { MdOutlineLightMode } from "react-icons/md";
 import { CiDark, CiLogin } from "react-icons/ci";
 import { RiMenu3Fill } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
-
+import { useAuthContext } from "../../context/AuthContext";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isNavShowing, setIshNavShowing] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const formRef = useRef();
-
+  const { isLoggedIn } = useAuthContext();
 
   useEffect(() => {
     const handleOutSideForm = (e) => {
@@ -27,8 +27,6 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleOutSideForm);
     };
   }, []);
-
-
 
   return (
     <nav>
@@ -62,9 +60,20 @@ const Navbar = () => {
           >
             {isDarkMode ? <CiDark /> : <MdOutlineLightMode />}
           </div>
-          <NavLink to="log-in">
-            <CiLogin />
-          </NavLink>
+
+          {isLoggedIn ? (
+            <NavLink to="/logout">
+              <button type="button" className="btn">
+                log Out
+              </button>
+            </NavLink>
+          ) : (
+            <NavLink to="log-in">
+              <button type="button" className="btn">
+                Log In
+              </button>
+            </NavLink>
+          )}
 
           <div
             className="menu__icon"

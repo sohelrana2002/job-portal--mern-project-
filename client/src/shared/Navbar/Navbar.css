@@ -43,6 +43,9 @@ nav .menu li a.active{
     align-items: center;
     gap: 1.5rem;
 }
+.right__nav a > .btn{
+    padding: 10px 2rem;
+}
 nav .theme__mode,
 nav .menu__icon{
     display: flex;

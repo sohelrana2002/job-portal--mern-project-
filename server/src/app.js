@@ -2,7 +2,7 @@ const express = require("express");
 require("./db/connection");
 require("dotenv").config();
 const port = process.env.PORT;
-// const router = require("./routers/router");
+const authRouter = require("./routers/auth-router");
 const postJobRouter = require('./routers/postJob-router');
 const cors = require('cors');
 const app = express();
@@ -16,6 +16,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 // ====middleware===
 app.use(express.json());
+app.use("/api/auth", authRouter);
 app.use("/api", postJobRouter);
 
 

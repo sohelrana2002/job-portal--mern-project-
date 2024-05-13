@@ -4,8 +4,9 @@ import Home from '../pages/Home/Home'
 import MyJobs from '../pages/MyJobs/MyJobs'
 import SalaryEstimate from '../pages/SalaryEstimate/SalaryEstimate'
 import PostJobs from "../pages/PostJobs/PostJobs";
-import LogIn from '../helper/LogIn/LogIn'
-import SignUp from "../helper/SignUp/SignUp";
+import LogIn from "../auth/LogIn/LogIn";
+import SignUp from "../auth/SignUp/SignUp";
+import Logout from "../auth/Logout/Logout";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
         {
           path: "/post-job",
           element: <PostJobs />
-        }
+        },
+        {
+          path: "/logout",
+          element: <Logout />
+        },
     ]
   },
 ]);
