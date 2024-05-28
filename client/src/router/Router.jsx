@@ -7,6 +7,7 @@ import PostJobs from "../pages/PostJobs/PostJobs";
 import LogIn from "../auth/LogIn/LogIn";
 import SignUp from "../auth/SignUp/SignUp";
 import Logout from "../auth/Logout/Logout";
+import JobDetails from "../pages/JobDetails/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
           path: "/logout",
           element: <Logout />
+        },
+        {
+          path: "/job-details/:id",
+          element: <JobDetails />
         },
     ]
   },

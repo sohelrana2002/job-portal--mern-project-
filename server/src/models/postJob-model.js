@@ -60,6 +60,11 @@ const postJobSchema = new mongoose.Schema({
         type: String,
         // required: true,
         lowercase: true
+    },
+    skills: {
+        type: String,
+        // required: true,
+        lowercase: true
     }
 },{ timestamps: true })
 

@@ -8,6 +8,8 @@
 .card > a .card__logo{
     width: 100px;
     height: 100px;
+    object-fit: contain;
+    border: 1px solid var(--color-border);
 }
 .card > a .card__details{
     display: flex;

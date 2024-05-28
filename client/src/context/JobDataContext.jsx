@@ -12,6 +12,7 @@ const initialState = {
     jobs: [],
     query: "",
     locationQuery: "",
+    jobDetails: {}
 }
 
 const JobDataContextProvider = ({ children }) => {
@@ -23,7 +24,7 @@ const JobDataContextProvider = ({ children }) => {
       type: "LOADING_JOB_DATA",
     });
     try {
-      const res = await axios.get("jobs.json");
+      const res = await axios.get("http://localhost:8000/api/all-jobs");
       const data = await res.data;
       // console.log(data);
       dispatch({
@@ -38,6 +39,24 @@ const JobDataContextProvider = ({ children }) => {
   useEffect(() => {
     getData();
   }, []);
+
+    // =========get single job details========
+  const getJobDetailsData = async (url) => {
+    dispatch({
+      type: "LOADING_JOB_DETAILS_DATA",
+    });
+    try {
+      const res = await axios.get(url);
+      const data = await res.data;
+      // console.log(data);
+      dispatch({
+        type: "GET_JOB_DETAILS_DATA",
+        payload: data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // ------------handleQuery----------
   const handleQuery = (e) => {
@@ -146,7 +165,8 @@ const JobDataContextProvider = ({ children }) => {
     handleRatioInput,
     handleButtonInput,
     filteredJobsData,
-    handleLoactionQuery
+    handleLoactionQuery,
+    getJobDetailsData
   };
 
   return (

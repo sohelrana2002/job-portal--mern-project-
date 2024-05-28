@@ -7,6 +7,7 @@ import './Card.css'
 
 const Card = ({cardData}) => {
   const {
+    _id,
     companyName,
     jobTitle,
     companyLogo,
@@ -17,11 +18,11 @@ const Card = ({cardData}) => {
     postingDate,
     experienceLevel,
     employmentType,
-    description,
+    shortDes,
   } = cardData;
   return (
     <div className='card'>
-        <NavLink>
+        <NavLink to={`/job-details/${_id}`}>
           <img src={companyLogo} className='card__logo' alt="logo" />
 
           <div className="card__details">
@@ -50,7 +51,7 @@ const Card = ({cardData}) => {
             </div>
 
             <div className="des">
-              {description}
+              {shortDes?.slice(0,150)}....
             </div>
           </div>
         </NavLink>

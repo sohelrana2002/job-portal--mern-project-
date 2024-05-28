@@ -1,6 +1,8 @@
+.post__job-bg{
+    background: var(--color-border);
+}
 .post__job{
     padding-top: 10rem;
-    background: var(--color-border);
 }
 .post__job-form{
     display: flex;
@@ -55,7 +57,9 @@
     margin: 7rem 8rem 0 0;
 
 }
-
+.jodit__editor{
+    font-size: 2rem;
+}
 
 
 

@@ -44,6 +44,20 @@ const jobDataReducer = (state, action) => {
      };
    };
 
+   case "LOADING_JOB_DETAILS_DATA": {
+    return{
+      ...state,
+      isLoading: true,
+    }
+   };
+
+   case "GET_JOB_DETAILS_DATA": {
+    return{
+      ...state,
+      jobDetails: action.payload,
+      isLoading: false
+    }
+   }
    
 
 

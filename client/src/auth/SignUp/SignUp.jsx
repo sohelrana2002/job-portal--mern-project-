@@ -11,7 +11,7 @@ const SignUp = () => {
     password: "",
     cPassword: "",
     wrongPass: false,
-    error: [],
+    error: "",
   });
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const SignUp = () => {
             password: "",
             cPassword: "",
             wrongPass: false,
-            error: [],
+            error:"",
           });
           navigate("/log-in");
         } else {
@@ -63,7 +63,7 @@ const SignUp = () => {
         setUserSignUp({
           ...userSignUp,
           wrongPass: true,
-          error: []
+          error: ""
         });
       }
     } catch (err) {

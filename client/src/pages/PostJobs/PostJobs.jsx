@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import "./PostJobs.css";
+import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import JoditEditor from 'jodit-react';
 
 const PostJobs = () => {
   const [userPostJob, setUserPostJob] = useState({
@@ -15,10 +16,14 @@ const PostJobs = () => {
     postingDate: "",
     experienceLevel: "",
     employmentType: "",
-    description: "",
+    description: "Start Typing",
     email: "",
+    skills: "",
+    shortDes: "",
   });
   const notify = () => toast("Successfully Submitted");
+  
+  const editor = useRef(null);
 
   let name, value;
   const postUserData = (event) => {
@@ -67,6 +72,7 @@ const PostJobs = () => {
             employmentType: "",
             description: "",
             email: "",
+            skills: ""
           })
       }
 
@@ -78,7 +84,8 @@ const PostJobs = () => {
   };
 
   return (
-    <div className="container post__job">
+    <div className="post__job-bg">
+      <div className="container post__job">
       <form
         // method="POST"
         className="post__job-form"
@@ -223,18 +230,46 @@ const PostJobs = () => {
           {/* ====required skilled set==== */}
           <div className="post__job-input">
             <label>Required Skill Sets</label>
-            <input type="date" />
+            <input
+              type="text"
+              placeholder="Ex: HTML, CSS, JavaScript"
+              name="skills"
+              value={userPostJob.skills}
+              onChange={postUserData}
+            />
           </div>
 
           {/* ====description==== */}
           <div className="post__job-input">
-            <label>Description</label>
+            <label>Short Description</label>
             <textarea
-              rows="10"
+              rows="5"
               placeholder="Ex: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repudiandae hic error, asperiores earum iste."
-              name="description"
-              value={userPostJob.description}
+              name="shortDes"
+              value={userPostJob.shortDes}
               onChange={postUserData}
+            />
+          </div>
+          {/* ====description==== */}
+          <div className="post__job-input">
+            <label>Description</label>
+            <JoditEditor className="jodit__editor"
+              ref={editor}
+              value={userPostJob.description}
+              // config={config}
+              tabIndex={10} // tabIndex of textarea
+              onBlur={(newContent) => {
+                setUserPostJob({
+                  ...userPostJob,
+                  description: newContent
+                });
+              }} // preferred to use only this option to update the content for performance reasons
+              onChange={(newContent) => {
+                setUserPostJob({
+                  ...userPostJob,
+                  description: newContent
+                });
+              }}
             />
           </div>
 
@@ -257,6 +292,7 @@ const PostJobs = () => {
         </button>
         <ToastContainer className="tostify" />
       </form>
+    </div>
     </div>
   );
 };
