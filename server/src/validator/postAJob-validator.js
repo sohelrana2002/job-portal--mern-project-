@@ -39,12 +39,21 @@ const postAJobValidatorSchema = z.object({
     .string({ required_error: "Employment Type must be required" })
     .trim()
     .toLowerCase(),
-    experienceLevel: z
-    .string({ required_error: "Experience Level must be required" })
+    description: z
+    .string({ required_error: "Description must be required" })
     .trim()
     .toLowerCase(),
-    experienceLevel: z
-    .string({ required_error: "Experience Level must be required" })
+    email: z
+    .string({ required_error: "Email must be required" })
+    .trim()
+    .toLowerCase()
+    .email({ message: "Invalid Email" }),
+    skills: z
+    .string({ required_error: "Skills be required" })
+    .trim()
+    .toLowerCase(),
+    shortDes: z
+    .string({ required_error: "Short Description must be required" })
     .trim()
     .toLowerCase(),
 });

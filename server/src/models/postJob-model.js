@@ -67,6 +67,10 @@ const postJobSchema = new mongoose.Schema(
       // required: true,
       lowercase: true,
     },
+    shortDes: {
+      type: String,
+      lowercase: true
+    }
   },
   { timestamps: true }
 );
