@@ -3,8 +3,10 @@ import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import JoditEditor from 'jodit-react';
+import Creatable from 'react-select/creatable';
 
 const PostJobs = () => {
+  // const [selectOption, setSelectOption] = useState(null)
   const [userPostJob, setUserPostJob] = useState({
     companyName: "",
     jobTitle: "",
@@ -18,12 +20,30 @@ const PostJobs = () => {
     employmentType: "",
     description: "Start Typing",
     email: "",
-    skills: "",
+    skills: [],
     shortDes: "",
   });
   const notify = () => toast("Successfully Submitted");
   
   const editor = useRef(null);
+  const skillOption = [
+    {
+      value: "c",
+      label: "C"
+    },
+    {
+      value: "c++",
+      label: "C++"
+    },
+    {
+      value: "java",
+      label: "Java"
+    },
+    {
+      value: "javascript",
+      label: "javaScript"
+    },
+  ]
 
   let name, value;
   const postUserData = (event) => {
@@ -230,12 +250,15 @@ const PostJobs = () => {
           {/* ====required skilled set==== */}
           <div className="post__job-input">
             <label>Required Skill Sets</label>
-            <input
-              type="text"
-              placeholder="Ex: HTML, CSS, JavaScript"
-              name="skills"
-              value={userPostJob.skills}
-              onChange={postUserData}
+            <Creatable
+              defaultValue={userPostJob.skills}
+              onChange={setUserPostJob.skills}
+              options={skillOption}
+              isMulti
+              // type="text"
+              // placeholder="Ex: HTML, CSS, JavaScript"
+              // name="skills"
+              // value={userPostJob.skills}
             />
           </div>
 
