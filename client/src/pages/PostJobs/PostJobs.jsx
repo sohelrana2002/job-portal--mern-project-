@@ -6,6 +6,8 @@ import JoditEditor from "jodit-react";
 import Creatable from "react-select/creatable";
 
 const PostJobs = () => {
+  const getEmail = localStorage.getItem("email");
+
   const [userPostJob, setUserPostJob] = useState({
     companyName: "",
     jobTitle: "",
@@ -306,10 +308,11 @@ const PostJobs = () => {
               <label>Job posted by</label>
               <input
                 type="email"
-                placeholder="Ex: youremail@mail.com"
+                placeholder={getEmail}
                 name="email"
                 value={userPostJob.email}
                 onChange={postUserData}
+                disabled
               />
             </div>
           </div>

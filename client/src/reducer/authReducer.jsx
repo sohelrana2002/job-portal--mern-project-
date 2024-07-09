@@ -9,6 +9,7 @@ const authReducer = (state, action) =>{
                 removeToken
             }
         };
+
         case "SET_TOKEN_IN_STATE": {
             return{
                 ...state,

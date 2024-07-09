@@ -50,7 +50,6 @@ const register = (async (req, res) => {
             message: "Sign Up Successfull",
             token: await createUser.generateToken(),
             userId: createUser._id.toString(),
-            email: createUser.email,
         });
     } catch (err) {
         res.status(500).json("internal server error");
@@ -82,6 +81,7 @@ const login = (async (req, res) => {
                 message: "Successfully login",
                 token: await userExist.generateToken(),
                 userId: userExist._id.toString(),
+                email: userExist.email,
             });
         }else{
             res.status(400).json({

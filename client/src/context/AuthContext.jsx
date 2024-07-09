@@ -5,7 +5,7 @@ import authReducer from '../reducer/authReducer';
 const AuthContext = createContext();
 
 const initialState = {
-    token: localStorage.getItem("token"),
+    token: localStorage.getItem("token")
 }
 
 // ====create provider====
@@ -13,11 +13,12 @@ const AuthProvider = ({ children }) =>{
     const [state, dispatch] = useReducer(authReducer, initialState);
 
     // ======store token in local storage====
-    const storeTokenInLS = (serverToken) =>{
+    const storeTokenInLS = (serverToken, email) =>{
         dispatch({
             type: "SET_TOKEN_IN_STATE",
             payload: serverToken
-        })
+        });
+        localStorage.setItem("email", email)
         return localStorage.setItem('token', serverToken);
     };
 
@@ -32,6 +33,8 @@ const AuthProvider = ({ children }) =>{
 
 
     const value = {
+        ...state,
+        dispatch,
         storeTokenInLS,
         logOutUser,
         isLoggedIn,

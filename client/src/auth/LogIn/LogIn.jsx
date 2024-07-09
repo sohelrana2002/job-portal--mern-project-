@@ -7,7 +7,7 @@ import "./LogIn.css";
 const URL = "http://localhost:8000/api/auth/login";
 
 const LogIn = () => {
-  const { storeTokenInLS } = useAuthContext();
+  const { storeTokenInLS, dispatch } = useAuthContext();
 
   const navigate = useNavigate();
   const [userLogIn, setUserLogIn] = useState({
@@ -38,13 +38,16 @@ const LogIn = () => {
         },
         body: JSON.stringify(userLogIn),
       });
-      console.log("log in form", res);
+      // console.log("log in form", res);
       const resData = await res.json();
-      console.log("resdata",resData);
+      // console.log("resdata",resData);
 
       if (res.ok) {
         alert("Log in successfully");
-        storeTokenInLS(resData.token);
+
+        // ----set token ---
+        storeTokenInLS(resData.token, resData.email);
+        
         setUserLogIn({
           email: "",
           password: "",
