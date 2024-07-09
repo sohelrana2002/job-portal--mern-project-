@@ -25,11 +25,12 @@ const JobDataContextProvider = ({ children }) => {
     });
     try {
       const res = await axios.get("http://localhost:8000/api/all-jobs");
-      const data = await res.data;
-      // console.log(data);
+      console.log(res, "ress");
+      const allJobs = await res.data.allJobs;
+      console.log(allJobs, "allJobs");
       dispatch({
         type: "GET_JOB_DATA",
-        payload: data,
+        payload: allJobs,
       });
     } catch (err) {
       console.log(err);
