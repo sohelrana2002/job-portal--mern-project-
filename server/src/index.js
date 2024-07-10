@@ -6,6 +6,7 @@ const authRouter = require("./routers/auth-router");
 const postJobRouter = require('./routers/postJob-router');
 const getAllJobsRouter = require("./routers/getAllJobs-router");
 const getJobByIdRouter = require("./routers/getJobById-router");
+const getJobByEmailRouter = require("./routers/getJobByEmail-router");
 const cors = require('cors');
 const app = express();
 
@@ -19,7 +20,13 @@ app.use(cors(corsOptions));
 // ====middleware===
 app.use(express.json());
 app.use("/api/auth", authRouter);
-app.use("/api", postJobRouter, getAllJobsRouter, getJobByIdRouter);
+app.use(
+  "/api",
+  postJobRouter,
+  getAllJobsRouter,
+  getJobByIdRouter,
+  getJobByEmailRouter
+);
 // app.use("/api", getAllJobsRouter);
 
 
