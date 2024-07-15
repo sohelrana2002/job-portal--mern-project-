@@ -1,11 +1,18 @@
-import React from 'react'
-
-import './myJobs.css'
+import "./myJobs.css";
+import { useMyPostContext } from "../../context/MyJobContext";
+import { useEffect } from "react";
 
 const MyJobs = () => {
-  return (
-    <div>MyJobs</div>
-  )
-}
+  const { getDataByEmail, jobs } = useMyPostContext();
 
-export default MyJobs
+  const getEmail = localStorage.getItem("email");
+  
+  useEffect(()=> {
+    getDataByEmail(`http://localhost:8000/api/jobs-by-email/${getEmail}`);
+  }, []);
+  console.log(jobs.length);
+
+  return <div>MyJobs</div>;
+};
+
+export default MyJobs;
