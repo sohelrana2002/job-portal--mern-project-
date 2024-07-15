@@ -1,0 +1,9 @@
+.myJob__container{
+    padding-top: 10rem;
+}
+.post_nothing{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}

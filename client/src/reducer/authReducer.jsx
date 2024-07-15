@@ -2,6 +2,7 @@ const authReducer = (state, action) =>{
     switch(action.type){
         case "REMOVE_TOKEN": {
             const removeToken = localStorage.removeItem("token");
+            localStorage.removeItem("email")
             
             return{
                 ...state,
