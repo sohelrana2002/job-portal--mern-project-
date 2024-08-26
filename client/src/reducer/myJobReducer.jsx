@@ -15,6 +15,14 @@ const myJobReducer = (state, action) =>{
             }
         };
 
+        case "SET_SEARCH_QUERY": {
+            return{
+                ...state,
+                searchQuery: action.payload
+            }
+        }
+
+
 
         default:
             return state;

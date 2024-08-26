@@ -7,3 +7,39 @@
     display: grid;
     place-items: center;
 }
+.myJon__container-box{
+    /* max-width: 800px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+.myJon__container-box .job__title{
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-secondry);
+}
+.myJob__container .search__box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+}
+.myJob__container .search__box input{
+    border: 2px solid var(--color-border);
+    padding: 1rem;
+    border-radius: 4px 0 0 4px;
+    width: 80%;
+}
+.myJob__container .search__box input::placeholder{
+    font-size: 1.2rem;
+}
+.myJob__container .search__box .btn{
+    width: 20%;
+    padding: 1.09rem;
+    border-radius: 0 4px 4px 0;
+}

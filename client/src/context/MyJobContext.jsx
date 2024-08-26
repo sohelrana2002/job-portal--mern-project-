@@ -6,7 +6,8 @@ const MyJobContext = createContext();
 
 const initialState = {
     jobs:[],
-    isLoading: false
+    isLoading: false,
+    searchQuery: "",
 }
 
 
@@ -22,7 +23,7 @@ const MyJobContextProvider = ({ children }) =>{
                 const res = await axios.get(url);
     
                 const dataByEmail = await res.data.jobsByEmail;
-                console.log(dataByEmail, "dataByEmail");
+                // console.log(dataByEmail, "dataByEmail");
 
                 dispatch({
                     type: "SET_JOB_BY_EMAIL",
@@ -33,12 +34,40 @@ const MyJobContextProvider = ({ children }) =>{
             }
         };
 
+        // -----------handle search query-----------
+        const handleSearchQuery = (e) =>{
+            let value = e.target.value;
+
+            dispatch({
+                type: "SET_SEARCH_QUERY",
+                payload: value,
+            })
+        };
+
+        // -----------search job data function-----------
+        const searchJobData = (jobs, searchQuery) =>{
+            const filterJobsQuery = jobs?.filter((curElem) => {
+                return (curElem?.jobTitle?.toLowerCase()?.indexOf(searchQuery?.toLowerCase()) !== -1);
+              });
+              
+              let filteringJobs = jobs;
+              // -----------for search query----------
+              if (searchQuery) {
+                filteringJobs = filterJobsQuery;
+                return filteringJobs;
+              }
+
+              return filteringJobs
+        }
+
 
 
     const value ={
         ...state,
         dispatch,
-        getDataByEmail
+        getDataByEmail,
+        handleSearchQuery,
+        searchJobData
     }
     return(
         <MyJobContext.Provider value={value}>

@@ -20,7 +20,7 @@ const PostJobs = () => {
     experienceLevel: "",
     employmentType: "",
     description: "Start Typing",
-    email: "",
+    email: getEmail,
     shortDes: "",
     skills: [],
   });
@@ -102,7 +102,7 @@ const PostJobs = () => {
       }
 
       const data = await res.json();
-      // console.log(data);
+      console.log(data);
     } catch (err) {
       console.log("post job", err);
     }
