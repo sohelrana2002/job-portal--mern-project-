@@ -7,6 +7,7 @@ const postJobRouter = require('./routers/postJob-router');
 const getAllJobsRouter = require("./routers/getAllJobs-router");
 const getJobByIdRouter = require("./routers/getJobById-router");
 const getJobByEmailRouter = require("./routers/getJobByEmail-router");
+const deleteJobByIdRouter = require("./routers/deleteJobById-router")
 const cors = require('cors');
 const app = express();
 
@@ -25,7 +26,8 @@ app.use(
   postJobRouter,
   getAllJobsRouter,
   getJobByIdRouter,
-  getJobByEmailRouter
+  getJobByEmailRouter,
+  deleteJobByIdRouter
 );
 // app.use("/api", getAllJobsRouter);
 

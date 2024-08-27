@@ -1,6 +1,7 @@
 import "./myJobs.css";
 import { useMyPostContext } from "../../context/MyJobContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Loading from "../../shared/Loading/Loading";
 
 const MyJobs = () => {
@@ -12,20 +13,20 @@ const MyJobs = () => {
     searchQuery,
     handleSearchQuery,
     searchJobData,
+    handleDeleteJob,
   } = useMyPostContext();
 
   const getEmail = localStorage.getItem("email");
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     getDataByEmail(`http://localhost:8000/api/jobs-by-email/${getEmail}`);
   }, []);
 
   const resSearchData = searchJobData(jobs, searchQuery);
   // console.log(resSearchData);
-  
 
-  if(isLoading){
-    return (<Loading />)
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -46,11 +47,98 @@ const MyJobs = () => {
           </form>
         </div>
       )}
-      <div>
+      {/* <div>
         {resSearchData?.map((curElem, i) => {
           return <h1 key={i}>{curElem.jobTitle}</h1>;
         })}
-      </div>
+      </div> */}
+
+      {/* ---------table----------- */}
+      <section className="py-5">
+        <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-32">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+            <div className="rounded-t mb-0 px-5 py-3 border-0">
+              <div className="flex flex-wrap items-center">
+                <div className="relative w-full px-4 max-w-full flex-grow flex-1">
+                  <h3 className="font-semibold  text-blueGray-700 text-5xl">
+                    All Jobs
+                  </h3>
+                </div>
+                <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                  <NavLink
+                    to={"/post-job"}
+                    className="bg-indigo-500 text-white active:bg-indigo-600 text-md font-bold uppercase px-3 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                  >
+                    Post A New Job
+                  </NavLink>
+                </div>
+              </div>
+            </div>
+
+            <div className="block w-full overflow-x-auto">
+              <table className="items-center bg-transparent w-full border-collapse ">
+                <thead>
+                  <tr>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      No.
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Title
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Company Name
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Salary
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Edit
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Delete
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {resSearchData &&
+                    resSearchData?.map((curElem, index) => {
+                      return (
+                        <tr>
+                          <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-2xl whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                            {index + 1}
+                          </th>
+                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-2xl capitalize  whitespace-nowrap p-4">
+                            {curElem.jobTitle}
+                          </td>
+                          <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-2xl whitespace-nowrap p-4">
+                            {curElem.companyName}
+                          </td>
+                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-2xl whitespace-nowrap p-4">
+                            ${curElem.minPrice} - ${curElem.maxPrice}
+                          </td>
+                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4">
+                            <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                            46,53%
+                          </td>
+                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4">
+                            <button
+                              onClick={() =>handleDeleteJob(curElem._id)}
+                              className="rounded-sm bg-red-700 py-2 px-2 text-white"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

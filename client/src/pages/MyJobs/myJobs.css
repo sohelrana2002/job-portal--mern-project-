@@ -2,10 +2,11 @@
     padding-top: 10rem;
 }
 .post_nothing{
-    width: 100vw;
-    height: 100vh;
+    width: 95%;
+    height: 70vh;
     display: grid;
     place-items: center;
+   text-align: center;
 }
 .myJon__container-box{
     /* max-width: 800px; */

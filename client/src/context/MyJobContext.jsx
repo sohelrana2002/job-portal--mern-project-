@@ -60,6 +60,12 @@ const MyJobContextProvider = ({ children }) =>{
               return filteringJobs
         }
 
+        // --------delete job by id---------
+        const handleDeleteJob = (id) =>{
+            console.log(id);
+            
+        }
+
 
 
     const value ={
@@ -67,7 +73,8 @@ const MyJobContextProvider = ({ children }) =>{
         dispatch,
         getDataByEmail,
         handleSearchQuery,
-        searchJobData
+        searchJobData,
+        handleDeleteJob
     }
     return(
         <MyJobContext.Provider value={value}>
