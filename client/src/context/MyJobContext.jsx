@@ -61,10 +61,23 @@ const MyJobContextProvider = ({ children }) =>{
         }
 
         // --------delete job by id---------
-        const handleDeleteJob = (id) =>{
-            console.log(id);
-            
-        }
+        const handleDeleteJob = async (id) => {
+          try {
+            const res = await fetch(
+              `http://localhost:8000/api/delete-job/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
+
+            // console.log(res);
+            if (res.statusText === "OK") {
+              alert("Job deleted successfully");
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        };
 
 
 
