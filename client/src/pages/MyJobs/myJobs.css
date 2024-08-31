@@ -46,8 +46,6 @@
 }
 
 .delete__popup{
-    /* width: 80vw;
-    height: 60vh; */
     position: absolute;
     left: 50%;
     top: 50%;
@@ -73,4 +71,18 @@
 }
 .delete__popup__btn > .btn:nth-child(2){
     background: red;
+}
+
+
+
+
+
+
+
+/*---------------media query(small screen)------------- */
+@media screen and (max-width: 700px) {
+    .delete__popup{
+        width: 250px;
+        padding: 2rem;
+    }
 }

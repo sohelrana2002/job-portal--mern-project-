@@ -64,13 +64,13 @@ const MyJobs = () => {
           </form>
 
           {/* ---------table----------- */}
-          <section className="py-5">
-            <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-32">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+          <section className="py-1">
+            <div className="w-full xl:w-10/12 mb-12 xl:mb-0 px-4 mx-auto mt-5">
+              <div className="p-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                 <div className="rounded-t mb-0 px-5 py-3 border-0">
                   <div className="flex flex-wrap items-center">
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                      <h3 className="font-semibold  text-blueGray-700 text-5xl">
+                      <h3 className="font-semibold text-blueGray-700 text-5xl">
                         All Jobs
                       </h3>
                     </div>
@@ -105,7 +105,7 @@ const MyJobs = () => {
                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           Edit
                         </th>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-2xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left rounded">
                           Delete
                         </th>
                       </tr>

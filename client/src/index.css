@@ -68,15 +68,13 @@ img{
 
 
 .btn{
-    padding: 1.35rem !important;
+    padding: 1.35rem;
     background: var(--color-primary);
     border-radius: 3px;
     color: #fff;
     font-size: 1.4rem;
     font-weight: 600;
     cursor: pointer;
-    border: none !important;
-    outline: none !important;
 }
 
 .sub__title{
@@ -113,7 +111,7 @@ img{
 }
 
 
-/*---------------media query(mediam screen)------------- */
+/*---------------media query(small screen)------------- */
 @media screen and (max-width: 700px) {
     html{
         font-size: 55.5%;

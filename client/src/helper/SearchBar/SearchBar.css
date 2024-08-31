@@ -31,7 +31,7 @@
     font-size: 1.3rem;
 }
 .search__bar  .btn{
-    padding: 1.35rem;
+    padding: .98rem;
     background: var(--color-primary);
     border-radius: 0 3px 3px 0;
     color: #fff;
