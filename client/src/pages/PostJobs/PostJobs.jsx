@@ -73,6 +73,11 @@ const PostJobs = () => {
           "Content-Type": "application/json",
         },
       });
+
+      const data = await res.json();
+      // console.log(data);
+
+
       if (res.statusText === "OK") {
         toast.success("Successfully submitted!", {
           position: "top-right",
@@ -84,26 +89,26 @@ const PostJobs = () => {
           progress: undefined,
           theme: "dark",
         });
-        // setUserPostJob({
-        //   companyName: "",
-        //   jobTitle: "",
-        //   companyLogo: "",
-        //   minPrice: "",
-        //   maxPrice: "",
-        //   salaryType: "",
-        //   jobLocation: "",
-        //   postingDate: "",
-        //   experienceLevel: "",
-        //   employmentType: "",
-        //   description: "",
-        //   email: getEmail,
-        //   shortDes: "",
-        //   skills: [],
-        // });
+        setUserPostJob({
+          companyName: "",
+          jobTitle: "",
+          companyLogo: "",
+          minPrice: "",
+          maxPrice: "",
+          salaryType: "",
+          jobLocation: "",
+          postingDate: "",
+          experienceLevel: "",
+          employmentType: "",
+          description: "Start Typing",
+          email: getEmail,
+          shortDes: "",
+          skills: [],
+        });
+      }else{
+        alert(data.message)
       }
 
-      const data = await res.json();
-      console.log(data);
     } catch (err) {
       console.log("post job", err);
     }

@@ -48,7 +48,7 @@ const MyJobs = () => {
   return (
     <div className="container myJob__container">
       {jobs?.length <= 0 ? (
-        <h1 className="post_nothing">You can't post any job</h1>
+        <h1 className="post_nothing">You have not posted any jobs yet.</h1>
       ) : (
         // ----------container box-------
         <div className="myJon__container-box">
@@ -66,7 +66,7 @@ const MyJobs = () => {
           {/* ---------table----------- */}
           <section className="py-1">
             <div className="w-full xl:w-10/12 mb-12 xl:mb-0 px-4 mx-auto mt-5">
-              <div className="p-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+              <div className="p-2 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                 <div className="rounded-t mb-0 px-5 py-3 border-0">
                   <div className="flex flex-wrap items-center">
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1">
