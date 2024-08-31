@@ -84,21 +84,22 @@ const PostJobs = () => {
           progress: undefined,
           theme: "dark",
         });
-        setUserPostJob({
-          companyName: "",
-          jobTitle: "",
-          companyLogo: "",
-          minPrice: "",
-          maxPrice: "",
-          salaryType: "",
-          jobLocation: "",
-          postingDate: "",
-          experienceLevel: "",
-          employmentType: "",
-          description: "",
-          email: "",
-          skills: [],
-        });
+        // setUserPostJob({
+        //   companyName: "",
+        //   jobTitle: "",
+        //   companyLogo: "",
+        //   minPrice: "",
+        //   maxPrice: "",
+        //   salaryType: "",
+        //   jobLocation: "",
+        //   postingDate: "",
+        //   experienceLevel: "",
+        //   employmentType: "",
+        //   description: "",
+        //   email: getEmail,
+        //   shortDes: "",
+        //   skills: [],
+        // });
       }
 
       const data = await res.json();

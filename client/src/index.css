@@ -68,13 +68,15 @@ img{
 
 
 .btn{
-    padding: 1.35rem;
+    padding: 1.35rem !important;
     background: var(--color-primary);
     border-radius: 3px;
     color: #fff;
     font-size: 1.4rem;
     font-weight: 600;
     cursor: pointer;
+    border: none !important;
+    outline: none !important;
 }
 
 .sub__title{
