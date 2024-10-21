@@ -21,11 +21,18 @@ const MyJobs = () => {
 
   const getEmail = localStorage.getItem("email");
 
+  const handleDeleteFromServer = () => {
+    handleDeleteJob(deleteId);
+    setShowDeletePopup(false);
+    console.log("clicked");
+    
+  };
+
+  const resSearchData = searchJobData(jobs, searchQuery);
   useEffect(() => {
     getDataByEmail(`http://localhost:8000/api/jobs-by-email/${getEmail}`);
   }, []);
 
-  const resSearchData = searchJobData(jobs, searchQuery);
   // console.log(resSearchData);
 
   const handleDeleteBtn = (id) => {
@@ -35,15 +42,10 @@ const MyJobs = () => {
     setDeleteId(id);
   };
 
-  const handleDeleteFromServer = () => {
-    handleDeleteJob(deleteId);
-    setShowDeletePopup(false);
-  };
-
   // ----------loading------------
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <div className="container myJob__container">
@@ -115,7 +117,7 @@ const MyJobs = () => {
                       {resSearchData &&
                         resSearchData?.map((curElem, index) => {
                           return (
-                            <tr>
+                            <tr key={index}>
                               <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-2xl whitespace-nowrap p-4 text-left text-blueGray-700 ">
                                 {index + 1}
                               </th>
